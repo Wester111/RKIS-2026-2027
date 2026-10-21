@@ -49,26 +49,27 @@ exit    - выход");
                         break;
                     case var cmd when cmd.StartsWith("add "):
                         string taskText = input.Substring(4).Trim('"');
+                        if (todoCount >= todos.Length)
+                        {
+                            string[] newTodos = new string[todos.Length * 2];
+                            for (int i = 0; i < todos.Length; i++) 
+                                newTodos[i] = todos[i];
+                            todos = newTodos;
+                            Console.WriteLine($"[Система]: Массив увеличен до {todos.Length} элементов.");
+                        }
                         todos[todoCount++] = taskText;
                         Console.WriteLine("Задача  добавлена");
                         break;
                     case "view":
                         bool hasTasks = 0;
-                        for( int i=0; i < todoCount; i++)
+                        for (int i = 0; i < todoCount; i++)
                         {
                             Console.WriteLine($"{i + 1}. {todos[i]}");
                             hasTasks = 1;
                         }
-                        if(!hasTasks)
-                           Console.WriteLine("Задач нет, время отдыха"); 
+                        if (!hasTasks)
+                            Console.WriteLine("Задач нет, время отдыха");
                         break;
-                    
-
-
-
-
-
-
                     default:
                         Console.WriteLine("Неизвестная команда. Введите 'help' для списка команд.");
                         break;

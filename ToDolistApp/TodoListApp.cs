@@ -44,7 +44,8 @@ add ... - добавить задачу
 view    - показать задачи
 exit    - выход");
                         break;
-                    
+                    case "profile":
+                        Console.WriteLine($"{firstName} {lastName}, {birthYear}");
                     default:
                         Console.WriteLine("Неизвестная команда. Введите 'help' для списка команд.");
                         break;

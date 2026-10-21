@@ -46,6 +46,18 @@ exit    - выход");
                         break;
                     case "profile":
                         Console.WriteLine($"{firstName} {lastName}, {birthYear}");
+                        break;
+                    case var cmd when cmd.StartsWith("add "):
+                        string taskText = input.Substring(4).Trim('"');
+                        todos[todoCount++] = taskText;
+                        Console.WriteLine("Задача  добавлена");
+                        break;
+                    case
+
+
+
+
+
                     default:
                         Console.WriteLine("Неизвестная команда. Введите 'help' для списка команд.");
                         break;
@@ -58,3 +70,4 @@ exit    - выход");
         }
     }
 }
+//Lesson 3:add command

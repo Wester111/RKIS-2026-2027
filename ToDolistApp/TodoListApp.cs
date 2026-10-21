@@ -52,7 +52,18 @@ exit    - выход");
                         todos[todoCount++] = taskText;
                         Console.WriteLine("Задача  добавлена");
                         break;
-                    case
+                    case "view":
+                        bool hasTasks = 0;
+                        for( int i=0; i < todoCount; i++)
+                        {
+                            Console.WriteLine($"{i + 1}. {todos[i]}");
+                            hasTasks = 1;
+                        }
+                        if(!hasTasks)
+                           Console.WriteLine("Задач нет, время отдыха"); 
+                        break;
+                    
+
 
 
 

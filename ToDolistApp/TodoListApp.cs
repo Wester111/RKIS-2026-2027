@@ -21,6 +21,10 @@ namespace TodoListApp
             int age = currentYear - birthYear;
 
             Console.WriteLine($"Добавлен пользователь {firstName} {lastName}, возраст {age}");
+            //Лекция 3
+            string[] todos = new string[2];
+            int todoCount = 0;
+        
         }
     }
 }

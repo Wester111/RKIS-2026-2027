@@ -27,23 +27,31 @@ namespace TodoListApp
             while (true)
             {
                 Console.Write("\n Введите команду: ");
-                string inputCommand = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(input))
+                string input = Console.ReadLine()?.Trim() ?? ""; //"?.Trim() ?? "";"-очистка от нуля, лишних пробелов и замена null на пустую строку
+                if (string.IsNullOrEmpty(input))
                     continue;
 
-                // Разделение на части ввода
-                string[] parts = inputCommand.Split(' ', 2);
-                string command = parts[0].ToLower();
+                switch (input.ToLower())
+                {
+                    case "exit":
+                        Console.WriteLine("ВСЁ!");
+                        return; // Выход из метода Main
+                    case "help":
+                        Console.WriteLine(@"Доступные команды:
+help    - список команд
+profile - данные пользователя
+add ... - добавить задачу
+view    - показать задачи
+exit    - выход");
+                        break;
+                    
+                    default:
+                        Console.WriteLine("Неизвестная команда. Введите 'help' для списка команд.");
+                        break;
+                }
 
-                if (command == "exit")
-                {
-                    Console.WriteLine("Выполняется выход");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Неизвестная команда. Введите 'help' для списка команд.");
-                }
+
+
             }
 
         }
